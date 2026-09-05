@@ -4,7 +4,7 @@ import { products, type Product } from "@/data/products";
 export type CartLine = {
   key: string;
   productId: string;
-  size?: string;
+  size?: string | undefined;
   color: string;
   qty: number;
 };
@@ -12,7 +12,7 @@ export type CartLine = {
 type StoreValue = {
   lines: CartLine[];
   wishlist: string[];
-  add: (product: Product, opts: { size?: string; color: string; qty?: number }) => void;
+  add: (product: Product, opts: { size?: string | undefined; color: string; qty?: number }) => void;
   setQty: (key: string, qty: number) => void;
   remove: (key: string) => void;
   clear: () => void;

@@ -44,7 +44,10 @@ export function ProductCard({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => {
-              add(product, { size: product.sizes?.[2] ?? product.sizes?.[0], color: product.colors[0].name });
+              add(product, {
+                size: product.sizes?.[2] ?? product.sizes?.[0],
+                color: product.colors[0]?.name ?? "Deep Navy",
+              });
               toast.success(`${product.name} added to bag`);
             }}
             className="btn-violet w-full py-3"
