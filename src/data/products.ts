@@ -7,10 +7,12 @@ import bags from "@/assets/cat-bags.jpg";
 
 export type CategorySlug = "mens-shirts" | "trousers" | "shoes" | "belts" | "caps" | "bags";
 
+export type CategoryPath = "/mens-shirts" | "/trousers" | "/shoes" | "/belts" | "/caps" | "/bags";
+
 export type Category = {
   slug: CategorySlug;
   name: string;
-  path: string;
+  path: CategoryPath;
   image: string;
   blurb: string;
 };

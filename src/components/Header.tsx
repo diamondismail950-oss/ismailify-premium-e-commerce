@@ -4,7 +4,11 @@ import { useState } from "react";
 import { categories } from "@/data/products";
 import { useStore } from "@/lib/store";
 
-const nav = [
+import type { CategoryPath } from "@/data/products";
+
+type NavItem = { label: string; to: CategoryPath | "/shop" | "/about" | "/contact" };
+
+const nav: NavItem[] = [
   { label: "Shop", to: "/shop" },
   ...categories.map((c) => ({ label: c.name, to: c.path })),
   { label: "About", to: "/about" },
