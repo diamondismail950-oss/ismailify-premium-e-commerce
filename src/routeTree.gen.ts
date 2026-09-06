@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BagsRouteImport } from './routes/bags'
+import { Route as BeltsRouteImport } from './routes/belts'
+import { Route as CapsRouteImport } from './routes/caps'
+import { Route as MensShirtsRouteImport } from './routes/mens-shirts'
+import { Route as ShoesRouteImport } from './routes/shoes'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as TrousersRouteImport } from './routes/trousers'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BagsRoute = BagsRouteImport.update({
+  id: '/bags',
+  path: '/bags',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeltsRoute = BeltsRouteImport.update({
+  id: '/belts',
+  path: '/belts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapsRoute = CapsRouteImport.update({
+  id: '/caps',
+  path: '/caps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MensShirtsRoute = MensShirtsRouteImport.update({
+  id: '/mens-shirts',
+  path: '/mens-shirts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShoesRoute = ShoesRouteImport.update({
+  id: '/shoes',
+  path: '/shoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrousersRoute = TrousersRouteImport.update({
+  id: '/trousers',
+  path: '/trousers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bags': typeof BagsRoute
+  '/belts': typeof BeltsRoute
+  '/caps': typeof CapsRoute
+  '/mens-shirts': typeof MensShirtsRoute
+  '/shoes': typeof ShoesRoute
+  '/shop': typeof ShopRoute
+  '/trousers': typeof TrousersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bags': typeof BagsRoute
+  '/belts': typeof BeltsRoute
+  '/caps': typeof CapsRoute
+  '/mens-shirts': typeof MensShirtsRoute
+  '/shoes': typeof ShoesRoute
+  '/shop': typeof ShopRoute
+  '/trousers': typeof TrousersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bags': typeof BagsRoute
+  '/belts': typeof BeltsRoute
+  '/caps': typeof CapsRoute
+  '/mens-shirts': typeof MensShirtsRoute
+  '/shoes': typeof ShoesRoute
+  '/shop': typeof ShopRoute
+  '/trousers': typeof TrousersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bags'
+    | '/belts'
+    | '/caps'
+    | '/mens-shirts'
+    | '/shoes'
+    | '/shop'
+    | '/trousers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bags'
+    | '/belts'
+    | '/caps'
+    | '/mens-shirts'
+    | '/shoes'
+    | '/shop'
+    | '/trousers'
+  id:
+    | '__root__'
+    | '/'
+    | '/bags'
+    | '/belts'
+    | '/caps'
+    | '/mens-shirts'
+    | '/shoes'
+    | '/shop'
+    | '/trousers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BagsRoute: typeof BagsRoute
+  BeltsRoute: typeof BeltsRoute
+  CapsRoute: typeof CapsRoute
+  MensShirtsRoute: typeof MensShirtsRoute
+  ShoesRoute: typeof ShoesRoute
+  ShopRoute: typeof ShopRoute
+  TrousersRoute: typeof TrousersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bags': {
+      id: '/bags'
+      path: '/bags'
+      fullPath: '/bags'
+      preLoaderRoute: typeof BagsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/belts': {
+      id: '/belts'
+      path: '/belts'
+      fullPath: '/belts'
+      preLoaderRoute: typeof BeltsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/caps': {
+      id: '/caps'
+      path: '/caps'
+      fullPath: '/caps'
+      preLoaderRoute: typeof CapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mens-shirts': {
+      id: '/mens-shirts'
+      path: '/mens-shirts'
+      fullPath: '/mens-shirts'
+      preLoaderRoute: typeof MensShirtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shoes': {
+      id: '/shoes'
+      path: '/shoes'
+      fullPath: '/shoes'
+      preLoaderRoute: typeof ShoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trousers': {
+      id: '/trousers'
+      path: '/trousers'
+      fullPath: '/trousers'
+      preLoaderRoute: typeof TrousersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BagsRoute: BagsRoute,
+  BeltsRoute: BeltsRoute,
+  CapsRoute: CapsRoute,
+  MensShirtsRoute: MensShirtsRoute,
+  ShoesRoute: ShoesRoute,
+  ShopRoute: ShopRoute,
+  TrousersRoute: TrousersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

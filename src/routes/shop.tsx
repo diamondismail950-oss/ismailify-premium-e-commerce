@@ -4,16 +4,19 @@ import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/ProductCard";
 import { categories, products, type CategorySlug } from "@/data/products";
 
-type ShopSearch = { q?: string; category?: CategorySlug };
+type ShopSearch = { q?: string | undefined; category?: CategorySlug | undefined };
 
 export const Route = createFileRoute("/shop")({
-  validateSearch: (search: Record<string, unknown>): ShopSearch => ({
-    ...(typeof search.q === "string" && search.q ? { q: search.q } : {}),
-    ...(typeof search.category === "string" &&
-    categories.some((c) => c.slug === search.category)
-      ? { category: search.category as CategorySlug }
-      : {}),
-  }),
+  validateSearch: (search: Record<string, unknown>): ShopSearch => {
+    const rawQ = search["q"];
+    const rawCategory = search["category"];
+    return {
+      ...(typeof rawQ === "string" && rawQ ? { q: rawQ } : {}),
+      ...(typeof rawCategory === "string" && categories.some((c) => c.slug === rawCategory)
+        ? { category: rawCategory as CategorySlug }
+        : {}),
+    };
+  },
   head: () => ({
     meta: [
       { title: "Shop All — ISMAILIFY" },
