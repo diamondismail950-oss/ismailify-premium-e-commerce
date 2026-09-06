@@ -23,7 +23,7 @@ export function Header() {
 
   const submitSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate({ to: "/shop", search: { q: q || undefined } });
+    navigate({ to: "/shop", search: q ? { q } : {} });
     setOpen(false);
   };
 
