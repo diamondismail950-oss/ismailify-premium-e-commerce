@@ -14,6 +14,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BagsRouteImport } from './routes/bags'
 import { Route as BeltsRouteImport } from './routes/belts'
 import { Route as CapsRouteImport } from './routes/caps'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MensShirtsRouteImport } from './routes/mens-shirts'
 import { Route as ShoesRouteImport } from './routes/shoes'
@@ -44,6 +46,16 @@ const BeltsRoute = BeltsRouteImport.update({
 const CapsRoute = CapsRouteImport.update({
   id: '/caps',
   path: '/caps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -83,6 +95,8 @@ export interface FileRoutesByFullPath {
   '/bags': typeof BagsRoute
   '/belts': typeof BeltsRoute
   '/caps': typeof CapsRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/mens-shirts': typeof MensShirtsRoute
   '/shoes': typeof ShoesRoute
@@ -96,6 +110,8 @@ export interface FileRoutesByTo {
   '/bags': typeof BagsRoute
   '/belts': typeof BeltsRoute
   '/caps': typeof CapsRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/mens-shirts': typeof MensShirtsRoute
   '/shoes': typeof ShoesRoute
@@ -110,6 +126,8 @@ export interface FileRoutesById {
   '/bags': typeof BagsRoute
   '/belts': typeof BeltsRoute
   '/caps': typeof CapsRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/mens-shirts': typeof MensShirtsRoute
   '/shoes': typeof ShoesRoute
@@ -125,6 +143,8 @@ export interface FileRouteTypes {
     | '/bags'
     | '/belts'
     | '/caps'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/mens-shirts'
     | '/shoes'
@@ -138,6 +158,8 @@ export interface FileRouteTypes {
     | '/bags'
     | '/belts'
     | '/caps'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/mens-shirts'
     | '/shoes'
@@ -151,6 +173,8 @@ export interface FileRouteTypes {
     | '/bags'
     | '/belts'
     | '/caps'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/mens-shirts'
     | '/shoes'
@@ -165,6 +189,8 @@ export interface RootRouteChildren {
   BagsRoute: typeof BagsRoute
   BeltsRoute: typeof BeltsRoute
   CapsRoute: typeof CapsRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   MensShirtsRoute: typeof MensShirtsRoute
   ShoesRoute: typeof ShoesRoute
@@ -208,6 +234,20 @@ declare module '@tanstack/react-router' {
       path: '/caps'
       fullPath: '/caps'
       preLoaderRoute: typeof CapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -261,6 +301,8 @@ const rootRouteChildren: RootRouteChildren = {
   BagsRoute: BagsRoute,
   BeltsRoute: BeltsRoute,
   CapsRoute: CapsRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   MensShirtsRoute: MensShirtsRoute,
   ShoesRoute: ShoesRoute,
