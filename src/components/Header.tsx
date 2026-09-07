@@ -3,6 +3,7 @@ import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/data/products";
 import { useStore } from "@/lib/store";
+import logoAsset from "@/assets/Ismailify_Logo.png.asset.json";
 
 import type { CategoryPath } from "@/data/products";
 
@@ -30,8 +31,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
       <div className="shell grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 py-4">
-        <Link to="/" className="shrink-0 font-display text-lg tracking-[0.28em] sm:text-xl">
-          ISMAILIFY
+        <Link to="/" className="shrink-0" aria-label="ISMAILIFY home">
+          <img
+            src={logoAsset.url}
+            alt="ISMAILIFY"
+            className="h-7 w-auto object-contain sm:h-8"
+            width="160"
+            height="40"
+          />
         </Link>
 
         <nav className="hidden min-w-0 items-center justify-center gap-6 lg:flex">
